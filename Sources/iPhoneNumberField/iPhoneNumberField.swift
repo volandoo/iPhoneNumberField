@@ -163,7 +163,6 @@ public struct iPhoneNumberField: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: PhoneNumberTextField, context: UIViewRepresentableContext<Self>) {
-        uiView.textContentType = .telephoneNumber //allow auto-fill to work with telephone text field
         uiView.text = text
         uiView.font = font
         uiView.maxDigits = maxDigits
@@ -179,7 +178,6 @@ public struct iPhoneNumberField: UIViewRepresentable {
         } else {
             uiView.withExamplePlaceholder = autofillPrefix
         }
-        if autofillPrefix && displayedText.isEmpty && isFirstResponder { uiView.resignFirstResponder() } // Workaround touch autofill issue
         uiView.tintColor = accentColor
         
         if let numberPlaceholderColor = numberPlaceholderColor {
